@@ -1,0 +1,52 @@
+public class BinaryTree {
+
+    Node root;
+
+    class Node {
+        int data;
+        Node left;
+        Node right;
+
+        Node(int data) {
+            this.data = data;
+        }
+    }
+
+    void createBinaryTree() {
+
+        Node first = new Node(1);
+        Node second = new Node(2);
+        Node third = new Node(3);
+        Node fourth = new Node(4);
+        Node fifth = new Node(5);
+
+        root = first;
+
+        first.left = second;
+        first.right = third;
+
+        second.left = fourth;
+        second.right = fifth;
+    }
+
+    public void preorder(Node root) {
+
+        if (root == null) {
+            return;
+        }
+
+        System.out.print(root.data + " ");
+        preorder(root.left);
+        preorder(root.right);
+    }
+
+    public static void main(String[] args) {
+
+        BinaryTree bt = new BinaryTree();
+
+        bt.createBinaryTree();
+
+        bt.preorder(bt.root);
+
+    }
+}
